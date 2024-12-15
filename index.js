@@ -1,4 +1,4 @@
-import Handlebars from "handlebars";
+import Handlebars from "../handlebars";
 import users from "./data.js";
 
 const templateSource = `
