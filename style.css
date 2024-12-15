@@ -1,0 +1,38 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+}
+
+.user-list {
+  list-style: none;
+  padding: 0;
+}
+
+.user-list li {
+  border: 1px solid #ddd;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+}
+
+button {
+  cursor: pointer;
+  margin: 5px;
+  padding: 5px 10px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 3px;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button.edit-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
