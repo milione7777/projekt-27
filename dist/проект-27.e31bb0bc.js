@@ -7031,7 +7031,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
-var users = {
+const users = {
   users: [{
     id: 1,
     name: "John Doe",
@@ -7056,68 +7056,62 @@ var _default = exports.default = users;
 var _handlebars = _interopRequireDefault(require("handlebars/dist/handlebars"));
 var _data = _interopRequireDefault(require("./data.js"));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
-function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
-function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
-function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
-var templateSource = "\n  <ul class=\"user-list\">\n    {{#each users}}\n    <li>\n      <h2>{{name}}</h2>\n      <p>Age: {{age}}</p>\n      <p>Occupation: {{occupation}}</p>\n      <button class=\"edit-button\" data-id=\"{{id}}\">Edit</button>\n    </li>\n    {{/each}}\n  </ul>\n";
-var template = _handlebars.default.compile(templateSource);
-var container = document.getElementById("app");
-var render = function render(data) {
-  var markup = template({
+const templateSource = `
+  <ul class="user-list">
+    {{#each users}}
+    <li>
+      <h2>{{name}}</h2>
+      <p>Age: {{age}}</p>
+      <p>Occupation: {{occupation}}</p>
+      <button class="edit-button" data-id="{{id}}">Edit</button>
+    </li>
+    {{/each}}
+  </ul>
+`;
+const template = _handlebars.default.compile(templateSource);
+const container = document.getElementById("app");
+const render = data => {
+  const markup = template({
     users: data
   });
   container.innerHTML = markup;
 };
 render(_data.default.users);
-var filterByAge = function filterByAge(minAge) {
-  var filteredUsers = _data.default.users.filter(function (user) {
-    return user.age >= minAge;
-  });
+const filterByAge = minAge => {
+  const filteredUsers = _data.default.users.filter(user => user.age >= minAge);
   render(filteredUsers);
 };
-var sortByAge = function sortByAge() {
-  var order = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "asc";
-  var sortedUsers = _toConsumableArray(_data.default.users).sort(function (a, b) {
+const sortByAge = (order = "asc") => {
+  const sortedUsers = [..._data.default.users].sort((a, b) => {
     return order === "asc" ? a.age - b.age : b.age - a.age;
   });
   render(sortedUsers);
 };
-var editUser = function editUser(id) {
-  var user = _data.default.users.find(function (user) {
-    return user.id === id;
-  });
-  var newName = prompt("Enter new name:", user.name);
+const editUser = id => {
+  const user = _data.default.users.find(user => user.id === id);
+  const newName = prompt("Enter new name:", user.name);
   if (newName) {
     user.name = newName;
     render(_data.default.users);
   }
 };
-var addControls = function addControls() {
-  var filterButton = document.createElement("button");
+const addControls = () => {
+  const filterButton = document.createElement("button");
   filterButton.textContent = "Show users age >= 30";
-  filterButton.addEventListener("click", function () {
-    return filterByAge(30);
-  });
-  var sortAscButton = document.createElement("button");
+  filterButton.addEventListener("click", () => filterByAge(30));
+  const sortAscButton = document.createElement("button");
   sortAscButton.textContent = "Sort by Age (Ascending)";
-  sortAscButton.addEventListener("click", function () {
-    return sortByAge("asc");
-  });
-  var sortDescButton = document.createElement("button");
+  sortAscButton.addEventListener("click", () => sortByAge("asc"));
+  const sortDescButton = document.createElement("button");
   sortDescButton.textContent = "Sort by Age (Descending)";
-  sortDescButton.addEventListener("click", function () {
-    return sortByAge("desc");
-  });
+  sortDescButton.addEventListener("click", () => sortByAge("desc"));
   document.body.insertBefore(filterButton, container);
   document.body.insertBefore(sortAscButton, container);
   document.body.insertBefore(sortDescButton, container);
 };
-container.addEventListener("click", function (event) {
+container.addEventListener("click", event => {
   if (event.target.classList.contains("edit-button")) {
-    var userId = Number(event.target.dataset.id);
+    const userId = Number(event.target.dataset.id);
     editUser(userId);
   }
 });
@@ -7147,7 +7141,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60205" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61228" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
