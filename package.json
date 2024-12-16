@@ -11,5 +11,10 @@
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html"
-  }
+  },
+  "source": "./index.html",
+  "browserslist": [
+    "last 2 versions",
+    "not dead"
+  ]
 }

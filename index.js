@@ -1,4 +1,5 @@
-import Handlebars from "handlebars/dist/handlebars";
+// import Handlebars from "handlebars/dist/handlebars";
+import Handlebars from "./node_modules/handlebars/dist/handlebars.js";
 import users from "./data.js";
 
 const templateSource = `

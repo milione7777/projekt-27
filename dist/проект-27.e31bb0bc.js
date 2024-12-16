@@ -7053,9 +7053,11 @@ var _default = exports.default = users;
 },{}],"index.js":[function(require,module,exports) {
 "use strict";
 
-var _handlebars = _interopRequireDefault(require("handlebars/dist/handlebars"));
+var _handlebars = _interopRequireDefault(require("./node_modules/handlebars/dist/handlebars.js"));
 var _data = _interopRequireDefault(require("./data.js"));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
+// import Handlebars from "handlebars/dist/handlebars";
+
 const templateSource = `
   <ul class="user-list">
     {{#each users}}
@@ -7116,7 +7118,7 @@ container.addEventListener("click", event => {
   }
 });
 addControls();
-},{"handlebars/dist/handlebars":"node_modules/handlebars/dist/handlebars.js","./data.js":"data.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./node_modules/handlebars/dist/handlebars.js":"node_modules/handlebars/dist/handlebars.js","./data.js":"data.js"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -7141,7 +7143,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61228" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63515" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
